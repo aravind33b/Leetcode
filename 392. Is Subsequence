@@ -1,0 +1,15 @@
+JavaScript Solution:
+
+var isSubsequence = function(s, t) {
+    let pointer = 0;
+    let counter = 0;
+    for(i=0;i<t.length;i++)
+    {
+        if(s[pointer] == t[i])
+        {
+            counter++;
+            pointer++;
+        }
+    }
+    return  ((counter === s.length))
+};
