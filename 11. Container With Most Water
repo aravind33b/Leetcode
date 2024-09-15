@@ -1,0 +1,28 @@
+JavaScript solution:
+
+var maxArea = function(height) {
+    let left = 0;
+    let right = height.length-1;
+    let area = 0
+    let startPoint = 0
+    while (left<right)
+    {
+        if(height[left]<=height[right])
+        {
+            startPoint = height[left];
+        }
+        else if (height[left] > height[right])
+        {
+            startPoint = height[right];
+        }
+
+        if(startPoint * (right-left) > area)
+            area = startPoint * (right-left)
+            
+        if(height[left]<=height[right])
+            left++
+        else
+            right--
+    }
+    return area
+};
