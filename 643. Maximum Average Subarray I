@@ -1,0 +1,18 @@
+Javascript solution
+
+var findMaxAverage = function (nums, k) {
+    let maxAvg = 0;
+    let totalSum = 0;
+    for (let i = 0; i < k; i++) {
+        totalSum += nums[i];
+    }
+    maxAvg = totalSum / k;
+
+    for (let i = k; i < nums.length; i++) {
+        totalSum = totalSum - nums[i - k] + nums[i];
+        if (totalSum / k > maxAvg) {
+            maxAvg = totalSum / k;
+        }
+    }
+    return maxAvg;
+};
