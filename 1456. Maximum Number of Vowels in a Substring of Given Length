@@ -1,0 +1,22 @@
+Javascript solution:
+
+var maxVowels = function(s, k) {
+    let vowel = ['a','e','i','o','u']
+    let maxCount = 0
+    let count = 0
+    let curMax = 0
+    let i = 0, j
+    for (let j = i; j < s.length; j++) {
+        if(vowel.includes(s[j])){
+            count+=1
+        }
+        if(j-i+1>k){
+            if(vowel.includes(s[i]))count--
+            i+=1
+            
+        }
+         maxCount = Math.max(maxCount,count)
+       if(maxCount===k)return maxCount
+    }
+    return maxCount
+};
