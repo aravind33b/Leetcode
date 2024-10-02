@@ -1,0 +1,16 @@
+JavaScript solution:
+
+var pivotIndex = function(nums) {
+    let leftSum = 0, rightSum = 0, totalSum = 0;
+    for (i=0;i<nums.length;i++)
+    {
+        totalSum += nums[i]
+    }
+    for (let i = 0; i < nums.length; i++) {
+        if (leftSum === totalSum - leftSum - nums[i]) {
+            return i;  // Return the pivot index
+        }
+        leftSum += nums[i];
+    }
+    return -1
+};
