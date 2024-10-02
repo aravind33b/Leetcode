@@ -1,0 +1,14 @@
+JavaScript solution:
+
+var largestAltitude = function(gain) {
+    let maxGain = 0, currGain = 0
+    for(i=0;i<gain.length;i++)
+    {
+        currGain = gain[i] + currGain
+        console.log(currGain)
+        if(currGain > maxGain)
+            maxGain = currGain
+
+    }
+    return maxGain
+};
