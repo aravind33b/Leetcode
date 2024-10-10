@@ -1,0 +1,24 @@
+JavaScript solution:
+
+var closeStrings = function(word1, word2) {
+    let i;
+    var hash1 = new Map()
+    var hash2 = new Map()
+    for(i=0;i<word1.length;i++)
+    {
+        hash1.set(word1[i], (hash1.get(word1[i]) || 0) + 1)
+    }
+    for(i=0;i<word2.length;i++)
+    {
+        hash2.set(word2[i], (hash2.get(word2[i]) || 0) + 1)
+    }
+    for(let key of hash1.keys())
+    {
+        if(!hash2.has(key))
+            return false
+    }
+    const values1 = [...hash1.values()].sort((a, b) => a - b);
+    const values2 = [...hash2.values()].sort((a, b) => a - b);
+    
+    return values1.join('') === values2.join('');
+};
