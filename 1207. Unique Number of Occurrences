@@ -1,0 +1,17 @@
+JavaScript Solution:
+
+var uniqueOccurrences = function(arr) {
+    const hashMap = new Map()
+    for(let num of arr)
+    {
+        hashMap.set(num, (hashMap.get(num) || 0) + 1)
+    }
+    const countMap = new Set()
+    for(let count of hashMap.values())
+    {
+        if(countMap.has(count))
+            return false
+        countMap.add(count)
+    }
+    return true
+};
