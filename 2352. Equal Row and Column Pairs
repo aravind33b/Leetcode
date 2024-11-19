@@ -1,0 +1,27 @@
+JavaScript Solution:
+
+var equalPairs = function(grid) {
+    const n = grid.length;
+    const rowMap = new Map();
+    let count = 0;
+
+    for(i=0;i<n;i++)
+    {
+        let rowArray = grid[i].join(',')
+        rowMap.set(rowArray, (rowMap.get(rowArray) || 0) + 1)
+    }
+    
+    for(j=0;j<n;j++)
+    {
+        let colArray = []
+        for(i=0;i<n;i++)
+        {
+            colArray.push(grid[i][j])
+        }
+        let colArrayStr = colArray.join(',')
+        if(rowMap.has(colArrayStr))
+            count+= rowMap.get(colArrayStr)
+    }
+
+    return count;
+};
