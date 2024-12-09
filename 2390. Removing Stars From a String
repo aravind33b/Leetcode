@@ -1,0 +1,17 @@
+JavaScript solution:
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var removeStars = function(s) {
+    let i, a='';
+    for(i=0;i<s.length;i++)
+    {
+        if(s[i] !== '*')
+            a += s[i]
+        else if(s[i] === '*')
+            a = a.slice(0, -1)
+    }
+    return a;
+};
