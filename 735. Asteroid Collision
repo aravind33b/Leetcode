@@ -1,0 +1,24 @@
+JavaScript solution:
+
+var asteroidCollision = function(asteroids) {
+    let asteroidsFinal = [], i;
+    for(i=0; i<asteroids.length; i++)
+    {
+        let collision = true;
+        while(collision && asteroidsFinal.length > 0 && asteroidsFinal[asteroidsFinal.length - 1] > 0 && asteroids[i] < 0)
+        {
+            let top = asteroidsFinal.pop()
+            if (top > Math.abs(asteroids[i]))
+            {
+                asteroidsFinal.push(top)
+                collision = false;
+            }
+            else if (top === Math.abs(asteroids[i]))
+                collision = false;
+        }
+        if (collision === true)
+            asteroidsFinal.push(asteroids[i])
+    }
+
+    return asteroidsFinal
+};
