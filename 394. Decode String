@@ -1,0 +1,35 @@
+JavaScript solution:
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var decodeString = function(s) {
+    let stack = [];
+    let currentString = "";
+    let currentNum = 0;
+
+    for (let char of s) {
+        if (!isNaN(char)) {
+            // Build the current number (handles multi-digit numbers)
+            currentNum = currentNum * 10 + parseInt(char);
+        } else if (char === '[') {
+            // Push the current number and string onto the stack
+            stack.push(currentString);
+            stack.push(currentNum);
+            currentString = "";
+            currentNum = 0;
+        } else if (char === ']') {
+            // Pop the number and previous string from the stack
+            let num = stack.pop(); // Get the repeat count
+            let prevString = stack.pop(); // Get the previous string
+            // Repeat the current string num times and append to the previous string
+            currentString = prevString + currentString.repeat(num);
+        } else {
+            // Append the current character to the current string
+            currentString += char;
+        }
+    }
+
+    return currentString;
+};
